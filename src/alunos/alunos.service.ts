@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Aluno } from './alunos.entity';
-import { Repository } from 'typeorm';
+import { Repository, Like } from 'typeorm';
 
 @Injectable()
 export class AlunosService {
@@ -11,11 +11,19 @@ export class AlunosService {
     ) {}
 
     findAll(): Promise<Aluno[]> {
-        return this.AlunosRepository.find();
+        return this.AlunosRepository.find()
     }
 
-    save(aluno:Aluno): Promise<Aluno>{
+    create(aluno:Aluno): Promise<Aluno>{
         return this.AlunosRepository.save(aluno)
+    }
+
+    findOne(id: string): Promise<Aluno>{
+        return this.AlunosRepository.findOne(id)
+    }
+
+    findName(nome: string): Promise<Aluno[]>{
+        return this.AlunosRepository.find({nomeCompleto: Like('%' + nome + '%')})
     }
     
 }

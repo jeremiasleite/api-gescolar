@@ -8,13 +8,18 @@ import { AlunosModule } from './alunos/alunos.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
-    UsuariosModule,    
+    TypeOrmModule.forRoot({
+      "type": "sqlite",
+      "database": "./mydb.sql",
+      "autoLoadEntities": true,
+      "synchronize": true
+    }),
+    UsuariosModule,
     AlunosModule
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private connection: Connection) {}
+  constructor(private connection: Connection) { }
 }
