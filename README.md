@@ -3,7 +3,7 @@
 ## Description
 
 A API do Gestor Escolar é um serviço que prover recursos para o sistema GEscolar. Esta aplicação foi desenvolvida com NestJS, Typeorm e Swagger, para prover um serviço no conceito de _SaaS_ (_Software as a Service_) e que implementa o conceito de Multi tenancy.
-## White House Web API Standards
+## Technology
 * [NestJS]([https://nestjs.com/](https://nestjs.com/))
 * [TypeOrm]([https://typeorm.io/#/](https://typeorm.io))
 * [Swagger]([https://swagger.io/solutions/api-documentation/](https://swagger.io/solutions/api-documentation/))
